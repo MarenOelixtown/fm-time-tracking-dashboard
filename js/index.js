@@ -21,6 +21,9 @@ fetch("/data.json")
 const appendActivity = (item) => {
   const newActivity = document.createElement("li");
   newActivity.innerHTML = `
-    <p>Hello Activity ${item.title}</p>`;
+    <img src="./images/icon-ellipsis.svg"/>
+    <h3>${item.title}</h3>
+    <p>${item.timeframes.daily.current}hrs</p>
+    <p>Last week - ${item.timeframes.daily.previous}hrs</p>`;
   activityList.append(newActivity);
 };
