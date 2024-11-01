@@ -26,7 +26,17 @@ const appendActivity = (item) => {
     <span class="sr-only">Menu</span>
     <img src="./images/icon-ellipsis.svg"/></button>    
     <h3>${item.title}</h3>
-    <p>${item.timeframes.daily.current}hours</p>
-    <p>Last week - ${item.timeframes.daily.previous}hours</p>`;
+    <div class="timeframe-content--hidden visible" data-js="daily">
+      <p>${item.timeframes.daily.current}hours</p>
+      <p>Last week - ${item.timeframes.daily.previous}hours</p>
+    </div>
+    <div class="timeframe-content--hidden" data-js="weekly">
+      <p>${item.timeframes.weekly.current}hours</p>
+      <p>Last week - ${item.timeframes.weekly.previous}hours</p>
+    </div>
+    <div class="timeframe-content--hidden" data-js="monthly">
+      <p>${item.timeframes.monthly.current}hours</p>
+      <p>Last week - ${item.timeframes.monthly.previous}hours</p>
+    </div>`;
   activityList.append(newActivity);
 };
