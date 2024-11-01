@@ -20,10 +20,13 @@ fetch("/data.json")
 
 const appendActivity = (item) => {
   const newActivity = document.createElement("li");
+  newActivity.classList.add("activity-list__item");
   newActivity.innerHTML = `
-    <img src="./images/icon-ellipsis.svg"/>
+    <button aria-pressed="false">
+    <span class="sr-only">Menu</span>
+    <img src="./images/icon-ellipsis.svg"/></button>    
     <h3>${item.title}</h3>
-    <p>${item.timeframes.daily.current}hrs</p>
-    <p>Last week - ${item.timeframes.daily.previous}hrs</p>`;
+    <p>${item.timeframes.daily.current}hours</p>
+    <p>Last week - ${item.timeframes.daily.previous}hours</p>`;
   activityList.append(newActivity);
 };
