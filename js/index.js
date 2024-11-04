@@ -71,3 +71,28 @@ function changeTimeframe(event) {
       .removeAttribute("hidden");
   });
 }
+
+let buttonFocus = 0;
+
+timeframeButtonList.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    allTimeframeButtons[buttonFocus].setAttribute("tabindex", -1);
+    if (event.key === "ArrowDown") {
+      buttonFocus++;
+      // If we're at the end, go to the start
+      if (buttonFocus >= allTimeframeButtons.length) {
+        buttonFocus = 0;
+      }
+      // Move up
+    } else if (event.key === "ArrowUp") {
+      buttonFocus--;
+      // If we're at the start, move to the end
+      if (buttonFocus < 0) {
+        buttonFocus = allTimeframeButtons.length - 1;
+      }
+    }
+
+    allTimeframeButtons[buttonFocus].setAttribute("tabindex", 0);
+    allTimeframeButtons[buttonFocus].focus();
+  }
+});
