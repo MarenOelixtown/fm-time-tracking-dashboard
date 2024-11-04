@@ -28,7 +28,54 @@
   <body>
     <main>
       <h1>Time tracking dashboard</h1>
-      <ul data-js="activity-list"></ul>
+      <section>
+        <div>
+          <figure>
+            <img
+              class=""
+              src="./images/image-jeremy.png"
+              alt="Portrait of Jeremy Robson"
+            />
+            <figcaption class="">
+              <h2 class=""><span>Report for</span>Jeremy Robson</h2>
+            </figcaption>
+          </figure>
+          <div
+            role="tablist"
+            aria-label="Timeframes"
+            data-js="btn-group-timeframe"
+          >
+            <button
+              role="tab"
+              aria-selected="true"
+              aria-controls="timeframe-daily"
+              id="daily"
+              tabindex="0"
+            >
+              Daily
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="timeframe-weekly"
+              id="weekly"
+              tabindex="-1"
+            >
+              Weekly
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="timeframe-monthly"
+              id="monthly"
+              tabindex="-1"
+            >
+              Monthly
+            </button>
+          </div>
+        </div>
+        <ul role="list" aria-label="activities" data-js="activity-list"></ul>
+      </section>
     </main>
   </body>
 </html>
