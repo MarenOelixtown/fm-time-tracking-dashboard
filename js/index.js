@@ -1,4 +1,5 @@
 const activityList = document.querySelector('[data-js="activity-list"]');
+
 fetch("/data.json")
   .then((request) => {
     if (!request.ok) {
@@ -10,11 +11,11 @@ fetch("/data.json")
   })
   .then((data) => {
     const allActivities = data;
-    console.log(allActivities);
     allActivities.forEach((activity) => {
       appendActivity(activity);
     });
   });
+
 const appendActivity = (activity) => {
   const newActivity = document.createElement("li");
   newActivity.classList.add("activity-list__item");
