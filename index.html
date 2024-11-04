@@ -41,16 +41,37 @@
             </figcaption>
           </figure>
           <div
-            role="group"
-            aria-labelledby="group-legend-timeframes"
-            data-js="btn-group"
+            role="tablist"
+            aria-label="Timeframes"
+            data-js="btn-group-timeframe"
           >
-            <h2 id="group-legend-timeframes">Timeframes</h2>
-            <div class="inner-group">
-              <button aria-pressed="false">Daily</button>
-              <button aria-pressed="false">Weekly</button>
-              <button aria-pressed="false">Monthly</button>
-            </div>
+            <button
+              role="tab"
+              aria-selected="true"
+              aria-controls="timeframe-daily"
+              id="daily"
+              tabindex="0"
+            >
+              Daily
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="timeframe-weekly"
+              id="weekly"
+              tabindex="-1"
+            >
+              Weekly
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="timeframe-monthly"
+              id="monthly"
+              tabindex="-1"
+            >
+              Monthly
+            </button>
           </div>
         </div>
         <ul role="list" aria-label="activities" data-js="activity-list"></ul>
