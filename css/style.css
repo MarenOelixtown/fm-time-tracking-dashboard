@@ -60,4 +60,14 @@ html {
 body {
   font-family: var(--ff-basis);
   font-weight: var(--fw-regular);
+  color: #ffffff;
+  min-height: 100vw;
+  background-color: var(--clr-neutral-very-dark-blue-bg);
+}
+main {
+  width: 90%;
+  max-width: 25rem;
+  margin: 5rem auto;
+}
+.dashboard {
 }
