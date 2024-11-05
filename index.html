@@ -24,23 +24,31 @@
     <main>
       <h1 class="sr-only">Time tracking dashboard</h1>
       <section class="dashboard">
-        <div>
-          <figure>
+        <div class="dashboard__header">
+          <figure class="profile">
             <img
-              class=""
+              class="profile__img"
               src="./assets/images/image-jeremy.png"
               alt="Portrait of Jeremy Robson"
+              height="78"
+              width="78"
             />
-            <figcaption class="">
-              <h2 class=""><span>Report for</span>Jeremy Robson</h2>
+            <figcaption class="profile__heading">
+              <h2 class="profile__heading-name">
+                <span class="profile__heading-name--small">Report for</span
+                >Jeremy Robson
+              </h2>
             </figcaption>
           </figure>
           <div
+            class="timeframes"
             role="tablist"
             aria-label="Timeframes"
             data-js="btn-group-timeframe"
           >
             <button
+              type="button"
+              class="timeframes__button"
               role="tab"
               aria-selected="true"
               aria-controls="timeframe-daily"
@@ -50,6 +58,8 @@
               Daily
             </button>
             <button
+              type="button"
+              class="timeframes__button"
               role="tab"
               aria-selected="false"
               aria-controls="timeframe-weekly"
@@ -59,6 +69,8 @@
               Weekly
             </button>
             <button
+              type="button"
+              class="timeframes__button"
               role="tab"
               aria-selected="false"
               aria-controls="timeframe-monthly"

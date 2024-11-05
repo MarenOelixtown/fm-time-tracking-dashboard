@@ -37,17 +37,20 @@ html {
   --fw-light: 300;
   --fw-regular: 400;
   --fw-medium: 500;
-  --clr-primary-blue: hsl(246, 80%, 60%);
+  --clr-primary-blue: #5847eb;
   --clr-primary-red-work: hsl(15, 100%, 70%);
   --clr-primary-blue-play: hsl(195, 74%, 62%);
   --clr-primary-red-study: hsl(348, 100%, 68%);
   --clr-primary-green-exercise: hsl(145, 58%, 55%);
-  --clr-primary-violet-social: hsl(264, 64%, 52%);
+  --clr-primary-violet-social: #7536d3;
   --clr-primary-orange-selfcare: hsl(43, 84%, 65%);
   --clr-neutral-very-dark-blue-bg: hsl(226, 43%, 10%);
   --clr-neutral-dark-blue: hsl(235, 46%, 20%);
-  --clr-neutral-desaturated-blue: hsl(235, 45%, 61%);
-  --clr-neutral-pale-blue: hsl(236, 100%, 87%);
+  --clr-neutral-desaturated-blue: #6f76c8;
+  --clr-neutral-pale-blue: #bdc1ff;
+  --clr-neutral-button: #7078c9;
+  --clr-neutral-white: #ffffff;
+  --b-radius: 15px;
 }
 .sr-only {
   position: absolute;
@@ -60,14 +63,71 @@ html {
 body {
   font-family: var(--ff-basis);
   font-weight: var(--fw-regular);
-  color: #ffffff;
+  color: var(--clr-neutral-white);
   min-height: 100vw;
   background-color: var(--clr-neutral-very-dark-blue-bg);
 }
 main {
-  width: 90%;
+  width: 85%;
   max-width: 25rem;
   margin: 5rem auto;
 }
+button {
+  border: 0.1em solid transparent;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover,
+button:focus-visible {
+  color: var(--clr-neutral-white);
+}
+.activity-button path:hover {
+  fill: var(--clr-neutral-white);
+}
 .dashboard {
+}
+.dashboard__header {
+  background-color: var(--clr-neutral-dark-blue);
+  border-radius: var(--b-radius);
+}
+.profile {
+  background-color: var(--clr-primary-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  border-radius: var(--b-radius);
+}
+.profile__img {
+  max-width: 64px;
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid var(--clr-neutral-white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-right: 1rem;
+}
+.profile__heading-name {
+  font-weight: var(--fw-light);
+  font-size: 1.5rem;
+}
+.profile__heading-name--small {
+  display: block;
+  font-size: 0.938rem;
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-pale-blue);
+}
+.timeframes {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeframes__button {
+  color: var(--clr-neutral-button);
+  font-size: 1.125rem;
+  font-weight: var(--fw-regular);
+}
+.timeframes__button[aria-selected="true"] {
+  color: var(--clr-neutral-white);
 }

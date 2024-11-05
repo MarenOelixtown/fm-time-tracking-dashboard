@@ -1,3 +1,4 @@
+const iconElipsis = `<svg width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/></svg>`;
 const activityList = document.querySelector('[data-js="activity-list"]');
 
 fetch("/data.json")
@@ -21,9 +22,9 @@ const appendActivity = (activity) => {
   newActivity.classList.add("activity-list__item");
   newActivity.setAttribute("data-js", "activity-item");
   newActivity.innerHTML = `
-      <button aria-pressed="false">
+      <button class="activity-button" type="button" aria-pressed="false">
       <span class="sr-only">Menu</span>
-      <img src="./assets/images/icon-ellipsis.svg"/></button>    
+      ${iconElipsis}</button>    
       <h4>${activity.title}</h4>
       <div id="timeframe-daily" role="tabpanel" aria-labelledby="daily" class="timeframe-content">
         <p>${activity.timeframes.daily.current}hours</p>
