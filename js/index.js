@@ -19,24 +19,30 @@ fetch("/data.json")
 
 const appendActivity = (activity) => {
   const newActivity = document.createElement("li");
-  newActivity.classList.add("activity-list__item");
+  newActivity.classList.add("activity-list__item", "container--bg-dark");
   newActivity.setAttribute("data-js", "activity-item");
   newActivity.innerHTML = `
-      <button class="activity-button" type="button" aria-pressed="false">
+      <h4 class="activity__title">${activity.title}</h4>    
+      <button class="activity__button" type="button" aria-pressed="false">
       <span class="sr-only">Menu</span>
-      ${iconElipsis}</button>    
-      <h4>${activity.title}</h4>
-      <div id="timeframe-daily" role="tabpanel" aria-labelledby="daily" class="timeframe-content">
-        <p>${activity.timeframes.daily.current}hours</p>
-        <p>Yesterday - ${activity.timeframes.daily.previous}hours</p>
+      ${iconElipsis}</button>          
+      <div class="activity__timeframe" id="timeframe-daily" role="tabpanel" aria-labelledby="daily" class="timeframe-content">
+        <div class="activity__timeframe--aligning">  
+        <p class="activity__current">${activity.timeframes.daily.current}hrs</p>
+        <p class="activity__previous">Yesterday - ${activity.timeframes.daily.previous}hrs</p>
+        </div>
       </div>
-      <div id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" class="timeframe-content" hidden>
-        <p>${activity.timeframes.weekly.current}hours</p>
-        <p>Last week - ${activity.timeframes.weekly.previous}hours</p>
+      <div class="activity__timeframe" id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" class="timeframe-content" hidden>
+        <div class="activity__timeframe--aligning">  
+        <p class="activity__current">${activity.timeframes.weekly.current}hours</p>
+        <p class="activity__previous">Last week - ${activity.timeframes.weekly.previous}hours</p>
+        </div>
       </div>
-      <div id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" class="timeframe-content" hidden>
-        <p>${activity.timeframes.monthly.current}hours</p>
-        <p>Last month - ${activity.timeframes.monthly.previous}hours</p>
+      <div class="activity__timeframe" id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" class="timeframe-content" hidden>
+        <div class="activity__timeframe--aligning"> 
+        <p class="activity__current">${activity.timeframes.monthly.current}hours</p>
+        <p class="activity__previous">Last month - ${activity.timeframes.monthly.previous}hours</p>
+        </div>
       </div>`;
   activityList.append(newActivity);
 };
