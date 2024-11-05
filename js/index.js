@@ -23,7 +23,7 @@ const appendActivity = (activity) => {
   newActivity.innerHTML = `
       <button aria-pressed="false">
       <span class="sr-only">Menu</span>
-      <img src="./images/icon-ellipsis.svg"/></button>    
+      <img src="./assets/images/icon-ellipsis.svg"/></button>    
       <h4>${activity.title}</h4>
       <div id="timeframe-daily" role="tabpanel" aria-labelledby="daily" class="timeframe-content">
         <p>${activity.timeframes.daily.current}hours</p>

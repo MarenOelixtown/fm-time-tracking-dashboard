@@ -1,1 +1,63 @@
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../assets/fonts/rubik-v28-latin-300.woff2") format("woff2");
+}
 
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/rubik-v28-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/rubik-v28-latin-500.woff2") format("woff2");
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --ff-basis: "Rubik", serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --clr-primary-blue: hsl(246, 80%, 60%);
+  --clr-primary-red-work: hsl(15, 100%, 70%);
+  --clr-primary-blue-play: hsl(195, 74%, 62%);
+  --clr-primary-red-study: hsl(348, 100%, 68%);
+  --clr-primary-green-exercise: hsl(145, 58%, 55%);
+  --clr-primary-violet-social: hsl(264, 64%, 52%);
+  --clr-primary-orange-selfcare: hsl(43, 84%, 65%);
+  --clr-neutral-very-dark-blue-bg: hsl(226, 43%, 10%);
+  --clr-neutral-dark-blue: hsl(235, 46%, 20%);
+  --clr-neutral-desaturated-blue: hsl(235, 45%, 61%);
+  --clr-neutral-pale-blue: hsl(236, 100%, 87%);
+}
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+body {
+  font-family: var(--ff-basis);
+  font-weight: var(--fw-regular);
+}
