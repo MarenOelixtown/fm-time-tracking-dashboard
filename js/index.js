@@ -12,6 +12,7 @@ fetch("/data.json")
   })
   .then((data) => {
     const allActivities = data;
+
     allActivities.forEach((activity) => {
       appendActivity(activity);
     });
@@ -19,9 +20,12 @@ fetch("/data.json")
 
 const appendActivity = (activity) => {
   const newActivity = document.createElement("li");
-  newActivity.classList.add("activity-list__item", "container--bg-dark");
+  newActivity.classList.add("activity__item--border");
   newActivity.setAttribute("data-js", "activity-item");
+  newActivity.style.backgroundColor = activity.backgroundColor;
+  newActivity.style.backgroundImage = activity.backgroundImage;
   newActivity.innerHTML = `
+  <div class="activity__item container--bg-dark">
       <h4 class="activity__title">${activity.title}</h4>    
       <button class="activity__button" type="button" aria-pressed="false">
       <span class="sr-only">Menu</span>
@@ -43,7 +47,8 @@ const appendActivity = (activity) => {
         <p class="activity__current">${activity.timeframes.monthly.current}hrs</p>
         <p class="activity__previous">Last month - ${activity.timeframes.monthly.previous}hrs</p>
         </div>
-      </div>`;
+      </div>
+    </div>`;
   activityList.append(newActivity);
 };
 

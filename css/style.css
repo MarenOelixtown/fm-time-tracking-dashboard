@@ -38,12 +38,6 @@ html {
   --fw-regular: 400;
   --fw-medium: 500;
   --clr-primary-blue: #5847eb;
-  --clr-primary-red-work: hsl(15, 100%, 70%);
-  --clr-primary-blue-play: hsl(195, 74%, 62%);
-  --clr-primary-red-study: hsl(348, 100%, 68%);
-  --clr-primary-green-exercise: hsl(145, 58%, 55%);
-  --clr-primary-violet-social: #7536d3;
-  --clr-primary-orange-selfcare: hsl(43, 84%, 65%);
   --clr-neutral-very-dark-blue-bg: hsl(226, 43%, 10%);
   --clr-neutral-dark-blue: hsl(235, 46%, 20%);
   --clr-neutral-desaturated-blue: #6f76c8;
@@ -51,6 +45,8 @@ html {
   --clr-neutral-button: #7078c9;
   --clr-neutral-white: #ffffff;
   --b-radius: 15px;
+  --dynamic-bg-color: #ffffff;
+  --dynamic-bg-image: none;
 }
 .sr-only {
   position: absolute;
@@ -95,6 +91,14 @@ button:focus-visible {
   background-color: var(--clr-neutral-dark-blue);
   border-radius: var(--b-radius);
 }
+.activity__item--border {
+  border-radius: var(--b-radius) var(--b-radius) calc(var(--b-radius) + 5px)
+    calc(var(--b-radius) + 5px);
+  background-repeat: no-repeat;
+  background-position: top -0.5rem right 1.4rem;
+  padding-top: 2.3rem;
+}
+
 .profile {
   background-color: var(--clr-primary-blue);
   display: flex;
@@ -141,7 +145,7 @@ button:focus-visible {
   gap: 1.5rem;
   list-style: none;
 }
-.activity-list__item {
+.activity__item {
   padding: 1.6rem 1.6rem 2rem 1.6rem;
   display: grid;
   grid-template-rows: auto auto;
