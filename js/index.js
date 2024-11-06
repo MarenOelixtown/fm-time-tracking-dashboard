@@ -34,14 +34,14 @@ const appendActivity = (activity) => {
       </div>
       <div class="activity__timeframe" id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" class="timeframe-content" hidden>
         <div class="activity__timeframe--aligning">  
-        <p class="activity__current">${activity.timeframes.weekly.current}hours</p>
-        <p class="activity__previous">Last week - ${activity.timeframes.weekly.previous}hours</p>
+        <p class="activity__current">${activity.timeframes.weekly.current}hrs</p>
+        <p class="activity__previous">Last week - ${activity.timeframes.weekly.previous}hrs</p>
         </div>
       </div>
       <div class="activity__timeframe" id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" class="timeframe-content" hidden>
         <div class="activity__timeframe--aligning"> 
-        <p class="activity__current">${activity.timeframes.monthly.current}hours</p>
-        <p class="activity__previous">Last month - ${activity.timeframes.monthly.previous}hours</p>
+        <p class="activity__current">${activity.timeframes.monthly.current}hrs</p>
+        <p class="activity__previous">Last month - ${activity.timeframes.monthly.previous}hrs</p>
         </div>
       </div>`;
   activityList.append(newActivity);

@@ -82,7 +82,8 @@ button:hover,
 button:focus-visible {
   color: var(--clr-neutral-white);
 }
-.activity__button path:hover {
+
+.activity__button:hover path {
   fill: var(--clr-neutral-white);
 }
 .dashboard {
@@ -141,10 +142,11 @@ button:focus-visible {
   list-style: none;
 }
 .activity-list__item {
-  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  padding: 1.6rem 1.6rem 2rem 1.6rem;
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr auto;
+  row-gap: 0.5rem;
   align-items: center;
 }
 .activity__timeframe {
@@ -154,4 +156,18 @@ button:focus-visible {
 .activity__timeframe--aligning {
   display: flex;
   justify-content: space-between;
+}
+.activity__title {
+  font-size: 1.125rem;
+  font-weight: var(--fw-medium);
+}
+.activity__current {
+  font-size: 2rem;
+  font-weight: var(--fw-light);
+}
+.activity__previous {
+  font-size: 0.938rem;
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-pale-blue);
+  align-self: center;
 }
