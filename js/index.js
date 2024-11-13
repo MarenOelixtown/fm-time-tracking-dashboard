@@ -97,7 +97,7 @@ function showTimeframePanel(container, activity, timeframe) {
       : timeframe === "weekly"
       ? "Last week"
       : "Last month"
-  } - ${timeframeData.previous} ${timeframeData.current > 1 ? "hrs" : "hr"}`;
+  } - ${timeframeData.previous} ${timeframeData.previous > 1 ? "hrs" : "hr"}`;
 
   aligningDiv.append(currentActivity, previousActivity);
   timeframePanel.append(aligningDiv);
