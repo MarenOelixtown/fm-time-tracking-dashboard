@@ -175,3 +175,26 @@ button:focus-visible {
   color: var(--clr-neutral-pale-blue);
   align-self: center;
 }
+
+@media (min-width: 75em) {
+  main {
+    max-width: 69.375rem;
+    margin: 10rem auto;
+  }
+  .dashboard {
+    grid-template-columns: 15.938rem auto;
+    gap: 1.875rem;
+  }
+  .dashboard__header {
+    min-height: 32.375rem;
+  }
+  .profile {
+    min-height: 22.125rem;
+  }
+  .activity-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.875rem;
+  }
+}
