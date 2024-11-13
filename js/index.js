@@ -1,5 +1,11 @@
 const iconElipsis = `<svg width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/></svg>`;
 const activityList = document.querySelector('[data-js="activity-list"]');
+const timeframeButtonList = document.querySelector(
+  '[data-js="btn-group-timeframe"]'
+);
+const allTimeframeButtons = timeframeButtonList.querySelectorAll(
+  ':scope > [role="tab"]'
+);
 
 fetch("/data.json")
   .then((request) => {
@@ -24,50 +30,37 @@ const appendActivity = (activity) => {
   newActivity.setAttribute("data-js", "activity-item");
   newActivity.style.backgroundColor = activity.backgroundColor;
   newActivity.style.backgroundImage = activity.backgroundImage;
+
   newActivity.innerHTML = `
-  <div class="activity__item container--bg-dark">
+    <div class="activity__item container--bg-dark" data-js="activity-item-container">
       <h4 class="activity__title">${activity.title}</h4>    
       <button class="activity__button" type="button" aria-pressed="false">
-      <span class="sr-only">Menu</span>
-      ${iconElipsis}</button>          
-      <div class="activity__timeframe" id="timeframe-daily" role="tabpanel" aria-labelledby="daily" >
-        <div class="activity__timeframe--aligning">  
-        <p class="activity__current">${activity.timeframes.daily.current}hrs</p>
-        <p class="activity__previous">Yesterday - ${activity.timeframes.daily.previous}hrs</p>
-        </div>
-      </div>
-      <div class="activity__timeframe" id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" hidden>
-        <div class="activity__timeframe--aligning">  
-        <p class="activity__current">${activity.timeframes.weekly.current}hrs</p>
-        <p class="activity__previous">Last week - ${activity.timeframes.weekly.previous}hrs</p>
-        </div>
-      </div>
-      <div class="activity__timeframe" id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" hidden>
-        <div class="activity__timeframe--aligning"> 
-        <p class="activity__current">${activity.timeframes.monthly.current}hrs</p>
-        <p class="activity__previous">Last month - ${activity.timeframes.monthly.previous}hrs</p>
-        </div>
-      </div>
+        <span class="sr-only">Menu</span>
+        ${iconElipsis}
+      </button>             
+      <!-- location for timeframeContainer -->
     </div>`;
+
+  const timeframeContainer = document.createElement("div");
+  timeframeContainer.classList.add("activity__timeframe");
+
+  newActivity
+    .querySelector('[data-js="activity-item-container"]')
+    .append(timeframeContainer);
   activityList.append(newActivity);
+
+  showTimeframePanel(timeframeContainer, activity, "daily");
+
+  allTimeframeButtons.forEach((button) => {
+    button.addEventListener("click", (event) =>
+      changeTimeframe(event, activity, timeframeContainer)
+    );
+  });
 };
 
-const timeframeButtonList = document.querySelector(
-  '[data-js="btn-group-timeframe"]'
-);
-const allTimeframeButtons = timeframeButtonList.querySelectorAll(
-  ':scope > [role="tab"]'
-);
-allTimeframeButtons.forEach((button) => {
-  button.addEventListener("click", changeTimeframe);
-});
-
-function changeTimeframe(event) {
+function changeTimeframe(event, activity, timeframeContainer) {
   const targetTimeframeBtn = event.target;
-  const selectedTimeframe = targetTimeframeBtn.getAttribute("aria-controls");
-  const allActivityItems = document.querySelectorAll(
-    '[data-js="activity-item"]'
-  );
+  const selectedTimeframe = targetTimeframeBtn.getAttribute("id");
 
   allTimeframeButtons.forEach((button) =>
     button.setAttribute("aria-selected", false)
@@ -75,14 +68,40 @@ function changeTimeframe(event) {
 
   targetTimeframeBtn.setAttribute("aria-selected", true);
 
-  allActivityItems.forEach((activityItem) => {
-    activityItem
-      .querySelectorAll('[role="tabpanel"]')
-      .forEach((timeframe) => timeframe.setAttribute("hidden", ""));
-    activityItem
-      .querySelector(`#${selectedTimeframe}`)
-      .removeAttribute("hidden");
-  });
+  showTimeframePanel(timeframeContainer, activity, selectedTimeframe);
+}
+
+function showTimeframePanel(container, activity, timeframe) {
+  container.innerHTML = "";
+
+  const timeframeData = activity.timeframes[timeframe];
+  const timeframePanel = document.createElement("div");
+  timeframePanel.setAttribute("role", "tabpanel");
+  timeframePanel.setAttribute("aria-labelledby", `${timeframe}`);
+  timeframePanel.setAttribute("id", `timeframe-${timeframe}`);
+
+  const aligningDiv = document.createElement("div");
+  aligningDiv.classList.add("activity__timeframe--aligning");
+
+  const currentActivity = document.createElement("p");
+  currentActivity.classList.add("activity__current");
+  currentActivity.textContent = `${timeframeData.current} ${
+    timeframeData.current > 1 ? "hrs" : "hr"
+  }`;
+
+  const previousActivity = document.createElement("p");
+  previousActivity.classList.add("activity__previous");
+  previousActivity.textContent = `${
+    timeframe === "daily"
+      ? "Yesterday"
+      : timeframe === "weekly"
+      ? "Last week"
+      : "Last month"
+  } - ${timeframeData.previous} ${timeframeData.current > 1 ? "hrs" : "hr"}`;
+
+  aligningDiv.append(currentActivity, previousActivity);
+  timeframePanel.append(aligningDiv);
+  container.append(timeframePanel);
 }
 
 let buttonFocus = 0;
