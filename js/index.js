@@ -33,7 +33,7 @@ const appendActivity = (activity) => {
 
   newActivity.innerHTML = `
     <div class="activity__item container--bg-dark" data-js="activity-item-container">
-      <h4 class="activity__title">${activity.title}</h4>    
+      <h3 class="activity__title">${activity.title}</h3>    
       <button class="activity__button" type="button" aria-pressed="false">
         <span class="sr-only">Menu</span>
         ${iconElipsis}
