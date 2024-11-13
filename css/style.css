@@ -197,4 +197,22 @@ button:focus-visible {
     grid-template-rows: 1fr 1fr;
     gap: 1.875rem;
   }
+  .profile {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem;
+  }
+  .profile__img {
+    max-width: 78px;
+    margin-bottom: 2.5rem;
+  }
+  .profile__heading-name {
+    font-size: 2.5rem;
+  }
+  .timeframes {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }
