@@ -38,8 +38,9 @@ html {
   --fw-regular: 400;
   --fw-medium: 500;
   --clr-primary-blue: #5847eb;
-  --clr-neutral-very-dark-blue-bg: hsl(226, 43%, 10%);
-  --clr-neutral-dark-blue: hsl(235, 46%, 20%);
+  --clr-neutral-very-dark-blue-bg: #0f1424;
+  --clr-neutral-dark-blue: #1c1f4a;
+  --clr-neutral-dark-blue-hover: #33397a;
   --clr-neutral-desaturated-blue: #6f76c8;
   --clr-neutral-pale-blue: #bdc1ff;
   --clr-neutral-button: #7078c9;
@@ -60,7 +61,7 @@ body {
   font-family: var(--ff-basis);
   font-weight: var(--fw-regular);
   color: var(--clr-neutral-white);
-  min-height: 100vw;
+  min-height: 100vh;
   background-color: var(--clr-neutral-very-dark-blue-bg);
 }
 main {
@@ -214,5 +215,26 @@ button:focus-visible {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+  .activity__item {
+    min-height: 100%;
+    padding: 1.6rem;
+  }
+  .activity__item:hover {
+    cursor: pointer;
+    background-color: var(--clr-neutral-dark-blue-hover);
+  }
+  .activity__timeframe--aligning {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .activity__previous {
+    align-self: flex-start;
+  }
+  .activity__current {
+    font-size: 3.5rem;
+  }
+  .activity__item--border {
+    padding-top: 2.7rem;
   }
 }
