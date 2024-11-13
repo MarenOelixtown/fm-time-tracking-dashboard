@@ -1,3 +1,4 @@
+const iconElipsis = `<svg width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/></svg>`;
 const activityList = document.querySelector('[data-js="activity-list"]');
 
 fetch("/data.json")
@@ -11,6 +12,7 @@ fetch("/data.json")
   })
   .then((data) => {
     const allActivities = data;
+
     allActivities.forEach((activity) => {
       appendActivity(activity);
     });
@@ -18,25 +20,35 @@ fetch("/data.json")
 
 const appendActivity = (activity) => {
   const newActivity = document.createElement("li");
-  newActivity.classList.add("activity-list__item");
+  newActivity.classList.add("activity__item--border");
   newActivity.setAttribute("data-js", "activity-item");
+  newActivity.style.backgroundColor = activity.backgroundColor;
+  newActivity.style.backgroundImage = activity.backgroundImage;
   newActivity.innerHTML = `
-      <button aria-pressed="false">
+  <div class="activity__item container--bg-dark">
+      <h4 class="activity__title">${activity.title}</h4>    
+      <button class="activity__button" type="button" aria-pressed="false">
       <span class="sr-only">Menu</span>
-      <img src="./images/icon-ellipsis.svg"/></button>    
-      <h4>${activity.title}</h4>
-      <div id="timeframe-daily" role="tabpanel" aria-labelledby="daily" class="timeframe-content">
-        <p>${activity.timeframes.daily.current}hours</p>
-        <p>Yesterday - ${activity.timeframes.daily.previous}hours</p>
+      ${iconElipsis}</button>          
+      <div class="activity__timeframe" id="timeframe-daily" role="tabpanel" aria-labelledby="daily" class="timeframe-content">
+        <div class="activity__timeframe--aligning">  
+        <p class="activity__current">${activity.timeframes.daily.current}hrs</p>
+        <p class="activity__previous">Yesterday - ${activity.timeframes.daily.previous}hrs</p>
+        </div>
       </div>
-      <div id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" class="timeframe-content" hidden>
-        <p>${activity.timeframes.weekly.current}hours</p>
-        <p>Last week - ${activity.timeframes.weekly.previous}hours</p>
+      <div class="activity__timeframe" id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" class="timeframe-content" hidden>
+        <div class="activity__timeframe--aligning">  
+        <p class="activity__current">${activity.timeframes.weekly.current}hrs</p>
+        <p class="activity__previous">Last week - ${activity.timeframes.weekly.previous}hrs</p>
+        </div>
       </div>
-      <div id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" class="timeframe-content" hidden>
-        <p>${activity.timeframes.monthly.current}hours</p>
-        <p>Last month - ${activity.timeframes.monthly.previous}hours</p>
-      </div>`;
+      <div class="activity__timeframe" id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" class="timeframe-content" hidden>
+        <div class="activity__timeframe--aligning"> 
+        <p class="activity__current">${activity.timeframes.monthly.current}hrs</p>
+        <p class="activity__previous">Last month - ${activity.timeframes.monthly.previous}hrs</p>
+        </div>
+      </div>
+    </div>`;
   activityList.append(newActivity);
 };
 
