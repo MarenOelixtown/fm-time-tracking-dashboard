@@ -104,6 +104,8 @@ function showTimeframePanel(container, activity, timeframe) {
   container.append(timeframePanel);
 }
 
+// arrow-navigation button-timeframe-tablist
+
 let buttonFocus = 0;
 
 timeframeButtonList.addEventListener("keydown", (event) => {
