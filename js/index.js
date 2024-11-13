@@ -30,19 +30,19 @@ const appendActivity = (activity) => {
       <button class="activity__button" type="button" aria-pressed="false">
       <span class="sr-only">Menu</span>
       ${iconElipsis}</button>          
-      <div class="activity__timeframe" id="timeframe-daily" role="tabpanel" aria-labelledby="daily" class="timeframe-content">
+      <div class="activity__timeframe" id="timeframe-daily" role="tabpanel" aria-labelledby="daily" >
         <div class="activity__timeframe--aligning">  
         <p class="activity__current">${activity.timeframes.daily.current}hrs</p>
         <p class="activity__previous">Yesterday - ${activity.timeframes.daily.previous}hrs</p>
         </div>
       </div>
-      <div class="activity__timeframe" id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" class="timeframe-content" hidden>
+      <div class="activity__timeframe" id="timeframe-weekly" role="tabpanel" aria-labelledby="weekly" hidden>
         <div class="activity__timeframe--aligning">  
         <p class="activity__current">${activity.timeframes.weekly.current}hrs</p>
         <p class="activity__previous">Last week - ${activity.timeframes.weekly.previous}hrs</p>
         </div>
       </div>
-      <div class="activity__timeframe" id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" class="timeframe-content" hidden>
+      <div class="activity__timeframe" id="timeframe-monthly" role="tabpanel" aria-labelledby="monthly" hidden>
         <div class="activity__timeframe--aligning"> 
         <p class="activity__current">${activity.timeframes.monthly.current}hrs</p>
         <p class="activity__previous">Last month - ${activity.timeframes.monthly.previous}hrs</p>
