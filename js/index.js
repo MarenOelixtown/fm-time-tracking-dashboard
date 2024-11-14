@@ -78,7 +78,6 @@ const showTimeframePanel = (container, activity, timeframe) => {
   const timeframePanel = document.createElement("div");
   timeframePanel.setAttribute("role", "tabpanel");
   timeframePanel.setAttribute("aria-labelledby", `${timeframe}`);
-  timeframePanel.setAttribute("id", `timeframe-${timeframe}`);
 
   timeframePanel.innerHTML = `
     <div class="activity__timeframe--aligning">

@@ -54,8 +54,8 @@ The attached links gave me orientation and ideas for combining buttons and timfr
 
 ### Useful resources
 
-- [ARIA: tab role ](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role) - This helped me .
-- [Example Tab Group](https://www.atomica11y.com/accessible-web/tabs/) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [ARIA: tab role ](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role) - This helped me with accessibility.
+- [Example Tab Group](https://www.atomica11y.com/accessible-web/tabs/) - This helped me with accessibility.
 
 ## Author
 
