@@ -58,7 +58,7 @@ const appendActivity = (activity) => {
   });
 };
 
-function changeTimeframe(event, activity, timeframeContainer) {
+const changeTimeframe = (event, activity, timeframeContainer) => {
   const targetTimeframeBtn = event.target;
   const selectedTimeframe = targetTimeframeBtn.getAttribute("id");
 
@@ -69,9 +69,9 @@ function changeTimeframe(event, activity, timeframeContainer) {
   targetTimeframeBtn.setAttribute("aria-selected", true);
 
   showTimeframePanel(timeframeContainer, activity, selectedTimeframe);
-}
+};
 
-function showTimeframePanel(container, activity, timeframe) {
+const showTimeframePanel = (container, activity, timeframe) => {
   container.innerHTML = "";
 
   const timeframeData = activity.timeframes[timeframe];
@@ -80,31 +80,26 @@ function showTimeframePanel(container, activity, timeframe) {
   timeframePanel.setAttribute("aria-labelledby", `${timeframe}`);
   timeframePanel.setAttribute("id", `timeframe-${timeframe}`);
 
-  const aligningDiv = document.createElement("div");
-  aligningDiv.classList.add("activity__timeframe--aligning");
-
-  const currentActivity = document.createElement("p");
-  currentActivity.classList.add("activity__current");
-  currentActivity.textContent = `${timeframeData.current} ${
+  timeframePanel.innerHTML = `
+    <div class="activity__timeframe--aligning">
+      <p class="activity__current">${timeframeData.current} ${
     timeframeData.current > 1 ? "hrs" : "hr"
-  }`;
-
-  const previousActivity = document.createElement("p");
-  previousActivity.classList.add("activity__previous");
-  previousActivity.textContent = `${
-    timeframe === "daily"
-      ? "Yesterday"
-      : timeframe === "weekly"
-      ? "Last week"
-      : "Last month"
-  } - ${timeframeData.previous} ${timeframeData.previous > 1 ? "hrs" : "hr"}`;
-
-  aligningDiv.append(currentActivity, previousActivity);
-  timeframePanel.append(aligningDiv);
+  }</p>
+    <p class="activity__previous">${
+      timeframe === "daily"
+        ? "Yesterday"
+        : timeframe === "weekly"
+        ? "Last week"
+        : "Last month"
+    } - ${timeframeData.previous} ${
+    timeframeData.previous > 1 ? "hrs" : "hr"
+  }</p>
+    </div>
+  `;
   container.append(timeframePanel);
-}
+};
 
-// arrow-navigation button-timeframe-tablist
+// arrow-navigation for button-timeframe-tablist
 
 let buttonFocus = 0;
 
