@@ -178,9 +178,14 @@ button:focus-visible {
 }
 
 @media (min-width: 75em) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   main {
     max-width: 69.375rem;
-    margin: 10rem auto;
+    margin: 0;
   }
   .dashboard {
     grid-template-columns: 15.938rem auto;
